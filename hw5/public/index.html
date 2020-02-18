@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<!--James Conn-->
+
+	<head>
+		<title> CS 341 Homework 2 </title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/conn22-hw3.css"></link>
+		<script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/> </script>
+	</head>
+
+	<body>
+			<!--JQuery Javascript for additional functionality-->
+		<script src="javascripts/buttons.js">
+
+				<!--Note: I was not able to get the hoverable dropdown working with JQuery-->
+				<!--  Leaving any sort of function behind also broke the order selection  -->
+
+	<!--		$(document).ready(function(){						-->
+	<!--				var chosen = $("#drop-opts a:selected").text();		-->
+	<!--				$("#dropbtn).text(chosen);				-->
+	<!--		});									-->
+
+		</script>		
+
+			<!--Heading-->
+		<h1> Cheesecake Order Form </h1>
+
+			<!--Image of Cheesecake-->
+		<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg" 
+		alt="Cheesecake with strawberry sauce" width="335" height="280"> </img>
+		
+			<!--Order options-->
+		<p id="options"> Quantity - Topping </p>
+		<div id="fauxTable">
+				<!--Drop-down selection for quanity-->
+			<select id="n">
+				<option id="1"> 1 </option>
+				<option id="2"> 2 </option>
+				<option id="3"> 3 </option>
+				<option id="4"> 4 </option>
+				<option id="5"> 5 </option>
+			</select>
+
+				<!--Radio Button for flavors-->
+			<ul id="type">
+				<input id="cherry" type="radio" name="flavor" value="cherry">Cherry</input> <br />
+				<input id="chocolate" type="radio" name="flavor" value="chocolate">Chocolate</input> <br />
+				<input id="plain" type="radio" name="flavor" value="plain">Plain</input>
+			</ul>
+		</div>
+
+			<!--Special instructions for order-->
+		<p id="notes"> Notes: </p>
+		<textarea id="instrs" rows="5" cols="40" placeholder="Enter any special instructions here"></textarea>
+		<br />
+
+			<!--Button to order-->
+		<button id="order"> Order </button>
+
+			<!--List of orders from a month selected via dropdown-->
+		<h2> 
+			Orders for
+				<!--Month Dropdown-->		<!--Note: dropdown is not limited to 3 months at a time w/ internal scrolling-->
+				<!Code modified from: https://www.w3schools.com/howto/howto_css_dropdown.asp-->
+			<span id="dropdown" class="dropdown">
+				<button id="dropbtn" class="dropbtn">Jan</button>
+				<div id="drop-opts" class="dropdown-options">
+					<a class="month" val="Jan" href="#"> Jan </a>
+					<a class="month" val="Feb" href="#"> Feb </a>
+					<a class="month" val="Mar" href="#"> Mar </a>
+					<a class="month" val="Apr" href="#"> Apr </a>
+					<a class="month" val="Jan" href="#"> May </a>
+					<a class="month" val="Jan" href="#"> Jun </a>
+					<a class="month" val="Jan" href="#"> Jul </a>
+					<a class="month" val="Jan" href="#"> Aug </a>
+					<a class="month" val="Jan" href="#"> Sep </a>
+					<a class="month" val="Jan" href="#"> Oct </a>
+					<a class="month" val="Jan" href="#"> Nov </a>
+					<a class="month" val="Jan" href="#"> Dec </a>
+				</div>
+			</span> 
+		</h2>
+		<ul>
+			<li> 11 cherry </li>
+			<li> 17 chocolate </li>
+			<li> 31 plain </li>
+		</ul>
+	</body>
+</html>
