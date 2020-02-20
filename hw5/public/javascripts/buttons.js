@@ -22,7 +22,7 @@ $(document).ready(function(){
 			var type = $("input[name='flavor']:checked").val();
 			var instrs = $("#instrs").val();
 
-    			$.post('/neworders', {quantity: n, topping: type, notes: instrs}, getData);
+    			$.post("/neworders", {quantity: n, topping: type, notes: instrs}, getData);
 
 			$("#options").text("Thank you! Your order has been placed:");
 			$("#notes").text("You have ordered " + n + " " + type + " cheesecakes");
