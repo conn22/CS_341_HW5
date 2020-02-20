@@ -1,11 +1,33 @@
 //Author: James Conn
 
+
+//helper function for retrieving data from a database and counting
+//the amount of each type of cheesecake ordered in that month
+	//NOTE: currently does not work properly
 function getData(data, status){
-	console.log(status);
+	var countPlain = 0;
+	var countChocula = 0;
+	var countCherry = 0;
+	data.forEach(function countNums(value) {
+		if(value.topping == 'plain'){
+			countPlain = countPlain + 1;
+		}else if(value.topping == 'chocolate'){
+			countChocula = countChocula + 1;
+		}else{
+			countCherry = countCherry + 1;
+		}
+	});
+	var values = [countPlain, countChocula, countCherry];
+	console.log(countPlain);
+	console.log(countChocula);
+	console.log(countCherry);
+	return values;
 }
 
+//main script for webpage
 $(document).ready(function(){
-  	$("#order").click(function(){
+  		//function for registering an order: creates a post to be entered to the database
+	$("#order").click(function(){
 		var vegan = false;
 			//<!--The following code inspired by: https://stackoverflow.com/a/9196996-->
 		var lines = $("#instrs").val().split('\n');
@@ -32,13 +54,13 @@ $(document).ready(function(){
 		}
 	});
 
+		//function for changing the month and each type of cheesecake ordered in a specific month
 	$(".month").click(function(event){
 		var url = "/orders";
-		var month = $("#drop-opts a:selected").text();
-//		debugger;
+		var month = $("#drop-opts a:selected").attr("val");
 		$.post(url, {month: month}, getData);
-		var month = $(this).attr("val");
-		$("#dropbtn").html(month);
+		var monthText = $(this).attr("val");
+		$("#dropbtn").html(monthText);
 	});
 });
 
