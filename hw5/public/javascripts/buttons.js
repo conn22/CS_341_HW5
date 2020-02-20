@@ -18,9 +18,13 @@ $(document).ready(function(){
 		}else{
 				//<!--Code concept coming from:-->
 				//<!--https://www.tutorialrepublic.com/faq/how-to-get-the-value-of-selected-radio-button-using-jquery.php-->
-			var n = $("#n option:selected").text();	
+			var n = $("#n option:selected").text();
 			var type = $("input[name='flavor']:checked").val();
-    			$("#options").text("Thank you! Your order has been placed:");
+			var instrs = $("#instrs").val();
+
+    			$.post('/neworders', {quantity: n, topping: type, notes: instrs}, getData);
+
+			$("#options").text("Thank you! Your order has been placed:");
 			$("#notes").text("You have ordered " + n + " " + type + " cheesecakes");
 			$("#order").hide();
 			$("#fauxTable").hide();

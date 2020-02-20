@@ -12,7 +12,7 @@ var stuff = {"data": [
 
 /* POST orders. */
 router.post('/', function(req, res, next) {
-	res.jsonp(stuff);
+	res.json(stuff);
 });
 
 
